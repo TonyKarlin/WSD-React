@@ -1,5 +1,7 @@
 # React + Vite
 
+## Personal Index Page
+[Home directory](https://users.metropolia.fi/~tonykar/WSD-React/)
 Open [link text here](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view it in the browser.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
