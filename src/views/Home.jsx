@@ -1,6 +1,7 @@
 import {useState} from 'react';
-import {MediaRow} from './MediaRow';
-import SingleView from './SingleView';
+import {MediaRow} from '../components/MediaRow';
+import SingleView from '../components/SingleView';
+import {Route, BrowserRouter as Router, Routes} from 'react-router';
 
 const mediaArray = [
   {
