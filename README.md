@@ -3,7 +3,7 @@
 ### Personal Index Page
 [Home directory](https://users.metropolia.fi/~tonykar/WSD-React/)
 
-Open [link text here](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view it in the browser.
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view "Routing" in the browser.
 
 -------------------------------------------------------------------------------------------------------------------
 
