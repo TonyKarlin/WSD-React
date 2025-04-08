@@ -1,7 +1,12 @@
 import PropTypes from 'prop-types';
+import SingleView from './SingleView';
 
 export const MediaRow = (props) => {
-  const {item} = props;
+  const {item, setSelectedItem} = props;
+
+  const handleClick = () => {
+    setSelectedItem(item);
+  };
 
   return (
     <>
@@ -14,6 +19,9 @@ export const MediaRow = (props) => {
         <td>{new Date(item.created_at).toLocaleString('fi-FI')}</td>
         <td>{item.filesize}</td>
         <td>{item.media_type}</td>
+        <td>
+          <button onClick={handleClick}>View</button>
+        </td>
       </tr>
     </>
   );
@@ -21,6 +29,7 @@ export const MediaRow = (props) => {
 
 MediaRow.propTypes = {
   item: PropTypes.object.isRequired,
+  setMediaItem: PropTypes.func.isRequired,
 };
 
 export default MediaRow;
