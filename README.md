@@ -2,9 +2,9 @@
 
 ## React Assignemnts ([link](https://github.com/ilkkamtk/WSK/blob/main/Week4/01-react-start.md))
 
-### Metropolias personal home directory
+### Metropolias personal index
 
-[Link to Home](https://users.metropolia.fi/~tonykar/WSD-React/)
+[Link to Index](https://users.metropolia.fi/~tonykar/WSD-React/)
 
 Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view "Routing" in the browser.
 
