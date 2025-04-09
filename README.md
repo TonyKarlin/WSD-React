@@ -2,7 +2,7 @@
 
 ## React Assignemnts
 
-### Personal Index Page
+### Metropolias personal index
 
 [Home directory](https://users.metropolia.fi/~tonykar/WSD-React/)
 
