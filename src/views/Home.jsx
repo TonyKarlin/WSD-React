@@ -12,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const getMedia = async () => {
       try {
-        const data = await fetchData('test.json');
+        const data = await fetchData(import.meta.env.VITE_MEDIA_API + '/media');
         setMediaArray(data);
       } catch (e) {
         console.error('error', e);
