@@ -8,6 +8,8 @@
 
 Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view Assignemnt "Routing" in the browser. [X]
 
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Hooks/) to view "Hooks" in the browser.
+
 ---
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
