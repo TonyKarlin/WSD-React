@@ -4,7 +4,6 @@ import {Link} from 'react-router';
 
 export const MediaRow = (props) => {
   const {item, setSelectedItem} = props;
-  console.log(setSelectedItem);
 
   // const handleClick = () => {
   //   setSelectedItem(item);
