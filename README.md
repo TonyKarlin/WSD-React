@@ -6,7 +6,7 @@
 
 [Link to Index](https://users.metropolia.fi/~tonykar/WSD-React/)
 
-Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view Assignemnt "Routing" in the browser. [x]
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view Assignemnt "Routing" in the browser. [X]
 
 ---
 
