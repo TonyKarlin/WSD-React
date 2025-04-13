@@ -1,6 +1,14 @@
 # React + Vite
 
-## React Assignemnts ([link](https://github.com/ilkkamtk/WSK/blob/main/Week4/01-react-start.md))
+## React Assignments ([link](https://github.com/ilkkamtk/WSK/blob/main/Week4/01-react-start.md))
+
+[Assignment 1 - First Component -Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/first-component)
+
+[Assignment 2 - State Management -Link to Branch ](https://github.com/TonyKarlin/WSD-React) - "main branch" I deleted the actual branch accidentaly...
+
+[Assignment 3 - Routing -Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/routing)
+
+[Assignment 4 - Hooks -Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/hooks)
 
 ### Metropolias personal index
 
