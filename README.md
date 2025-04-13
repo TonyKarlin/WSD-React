@@ -4,7 +4,7 @@
 
 [Assignment 1 - First Component -Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/first-component)
 
-[Assignment 2 - State Management -Link to Branch ](https://github.com/TonyKarlin/WSD-React) - "main" branch deleted the actual branch accidentaly
+[Assignment 2 - State Management -Link to Branch ](https://github.com/TonyKarlin/WSD-React) - "main branch" I deleted the actual branch accidentaly...
 
 [Assignment 3 - Routing -Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/routing)
 
