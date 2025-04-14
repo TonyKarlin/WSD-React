@@ -1,0 +1,8 @@
+POST https://media2.edu.metropolia.fi/auth-api/api/v1/users
+Content-Type: application/json
+
+{
+  "username": "testi8669",
+  "password": "password",
+  "email": "testi@metropolia.fi"
+}
