@@ -1,41 +1,12 @@
-import {useEffect, useState} from 'react';
 import {MediaRow} from '../components/MediaRow';
 import SingleView from '../components/SingleView';
-import {Route, BrowserRouter as Router, Routes} from 'react-router';
-import {fetchData} from '../utils/fetchData.js';
+import useMedia from '../hooks/apiHooks.js';
+import {useState} from 'react';
 
 const Home = () => {
-  const [mediaArray, setMediaArray] = useState([]);
-  //const [users, setUserIds] = useState([]);
+  const {mediaArray} = useMedia();
   const [selectedItem, setSelectedItem] = useState(null);
   console.log('selectedItem', selectedItem);
-
-  useEffect(() => {
-    const getMedia = async () => {
-      try {
-        const mediaUrl = import.meta.env.VITE_MEDIA_API;
-        const mediaData = await fetchData(mediaUrl + '/media');
-
-        const authApiUrl = import.meta.env.VITE_AUTH_API;
-
-        // const userIds = mediaData.map(({user_id}) => user_id);
-
-        const newData = await Promise.all(
-          mediaData.map(async (item) => {
-            const data = await fetchData(`${authApiUrl}/users/${item.user_id}`);
-
-            return {...item, username: data.username};
-          }),
-        );
-
-        setMediaArray(newData);
-      } catch (e) {
-        console.error('error', e);
-      }
-    };
-
-    getMedia();
-  }, []);
 
   console.log('media array', mediaArray);
 
