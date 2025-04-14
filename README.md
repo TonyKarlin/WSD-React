@@ -18,8 +18,8 @@
 
 [Link to Index](https://users.metropolia.fi/~tonykar/WSD-React/)
 
-Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view Assignment "Routing" in the browser. [&#x2611;]
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view Assignment "Routing" in the browser. &#x2611;
 
-Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Hooks/) to view Assignment "Hooks" in the browser. [&#x2611;]
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Hooks/) to view Assignment "Hooks" in the browser. &#x2611;
 
-Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Custom-Hooks/) to view Assignment "Custom-Hooks" in the browser. [&#x2611;]
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Custom-Hooks/) to view Assignment "Custom-Hooks" in the browser. &#x2611;
