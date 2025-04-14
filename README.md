@@ -10,7 +10,9 @@
 
 [Assignment 4 - Hooks -Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/hooks)
 
--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+[Assignment 5 - Custom-Hooks -Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/custom-hooks)
+
+---
 
 ### Metropolias personal index
 
@@ -20,3 +22,4 @@ Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view Ass
 
 Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Hooks/) to view Assignment "Hooks" in the browser. [X]
 
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Custom-Hooks/) to view Assignment "Custom-Hooks" in the browser. [X]
