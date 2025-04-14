@@ -1,14 +1,11 @@
 import {MediaRow} from '../components/MediaRow';
 import SingleView from '../components/SingleView';
-import useMedia from '../hooks/apiHooks.js';
+import {useMedia} from '../hooks/apiHooks.js';
 import {useState} from 'react';
 
 const Home = () => {
   const {mediaArray} = useMedia();
   const [selectedItem, setSelectedItem] = useState(null);
-  console.log('selectedItem', selectedItem);
-
-  console.log('media array', mediaArray);
 
   return (
     <>

@@ -35,4 +35,56 @@ const useMedia = () => {
   return {mediaArray};
 };
 
-export default useMedia;
+const useAuthentication = () => {
+  const postLogin = async (inputs) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+    const loginResult = await fetchData(
+      import.meta.env.VITE_AUTH_API + '/auth/login',
+      fetchOptions,
+    );
+
+    console.log('login result', loginResult);
+
+    window.localStorage.setItem('token', loginResult.token);
+
+    return loginResult;
+  };
+
+  console.log('post', postLogin);
+
+  return {postLogin};
+};
+
+const useUser = () => {
+  const postUser = async (inputs) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+    return await fetchData(`${authApiUrl}/users`, fetchOptions);
+  };
+
+  const getUserByToken = async (token) => {
+    const fetchOptions = {
+      headers: {
+        Authorization: 'Bearer: ' + token, // Space is important after 'Bearer:(here)'
+      },
+    };
+    const userData = await fetchData(`${authApiUrl}/users/token`, fetchOptions);
+
+    console.log('userData', userData);
+    return userData;
+  };
+  return {getUserByToken, postUser};
+};
+
+export {useMedia, useAuthentication, useUser};
