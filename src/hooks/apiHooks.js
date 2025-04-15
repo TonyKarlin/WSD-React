@@ -49,8 +49,6 @@ const useAuthentication = () => {
       fetchOptions,
     );
 
-    console.log('login result', loginResult);
-
     window.localStorage.setItem('token', loginResult.token);
 
     return loginResult;
