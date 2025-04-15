@@ -12,7 +12,7 @@
 
 [Assignment 5 - Custom-Hooks - Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/custom-hooks)
 
-[Assignment 6 - Forms - Link to Branch]((https://github.com/TonyKarlin/WSD-React/tree/forms))
+[Assignment 6 - Forms - Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/forms)
 
 ---
 
