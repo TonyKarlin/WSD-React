@@ -14,6 +14,8 @@
 
 [Assignment 6 - Forms - Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/forms)
 
+[Assignment 7 - Shared-State (Context) - Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/shared-state)
+
 ---
 
 ### Metropolias personal index
@@ -27,3 +29,5 @@ Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Hooks/) to view Assig
 Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Custom-Hooks/) to view Assignment "Custom-Hooks" in the browser. &#x2611;
 
 Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Forms/) to view Assignment "Forms" in the browser. &#x2611;
+
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Context/) to view Assignment "Context" in the browser. &#x2611;
