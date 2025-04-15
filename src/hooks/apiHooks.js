@@ -56,8 +56,6 @@ const useAuthentication = () => {
     return loginResult;
   };
 
-  console.log('post', postLogin);
-
   return {postLogin};
 };
 
@@ -81,7 +79,6 @@ const useUser = () => {
     };
     const userData = await fetchData(`${authApiUrl}/users/token`, fetchOptions);
 
-    console.log('userData', userData);
     return userData;
   };
   return {getUserByToken, postUser};
