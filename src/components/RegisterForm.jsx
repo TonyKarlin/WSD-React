@@ -6,16 +6,19 @@ const RegisterForm = () => {
   // TODO: implement
   const {postLogin} = useAuthentication();
   const navigate = useNavigate();
+
   const initValues = {
     email: '',
     username: '',
     password: '',
-    re_enter: '',
   };
 
   const doRegister = async () => {
-    await postLogin(inputs);
+    console.log('Register funktiota kutsuttu');
+    console.log('Inputs', inputs);
+    const registerResult = await postLogin(inputs);
     navigate('/profile');
+    console.log('regRes', registerResult);
   };
 
   const {inputs, handleInputChange, handleSubmit} = useForm(
@@ -50,21 +53,11 @@ const RegisterForm = () => {
         <div>
           <label htmlFor="register-password">Password</label>
           <input
-            name="register-password"
+            name="password"
             type="password"
             id="register-password"
             onChange={handleInputChange}
             autoComplete="register-password"
-          />
-        </div>
-        <div>
-          <label htmlFor="re-enter-password">Re-Enter Password</label>
-          <input
-            name="re-enter"
-            type="password"
-            id="re-enter-password"
-            onChange={handleInputChange}
-            autoComplete="re-enter"
           />
         </div>
         <button type="submit">Register</button>
