@@ -1,8 +1,11 @@
 import LoginForm from '../components/LoginForm';
+import {useUserContext} from '../hooks/contextHooks';
 
 const Logout = () => {
-  // TODO: implement
-  return null;
+  const {handleLogout} = useUserContext();
+  handleLogout();
+  console.log('Logged out');
+  return <p>Logged out</p>;
 };
 
 export default Logout;
