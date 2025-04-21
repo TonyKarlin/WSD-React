@@ -2,4 +2,4 @@
 
 ## React Assignments ([link](https://github.com/ilkkamtk/WSK/blob/main/Week4/01-react-start.md))
 
-[Assignment 3 - Routing - Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/routing)
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Routing/) to view Assignment "Routing" in the browser. &#x2611;
