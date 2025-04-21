@@ -2,5 +2,5 @@
 
 ## React Assignments ([link](https://github.com/ilkkamtk/WSK/blob/main/Week4/01-react-start.md))
 
-[Assignment 5 - Custom-Hooks - Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/custom-hooks)
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Custom-Hooks/) to view Assignment "Custom-Hooks" in the browser. &#x2611;
 
