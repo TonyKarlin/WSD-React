@@ -2,4 +2,7 @@
 
 ## React Assignments ([link](https://github.com/ilkkamtk/WSK/blob/main/Week4/01-react-start.md))
 
-[Assignment 1 - First Component - Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/first-component)
+Assignment was not asked to be uploaded to metropolias server.
+
+[Link to main branch](https://github.com/TonyKarlin/WSD-React/tree/main)
+
