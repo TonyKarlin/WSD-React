@@ -13,9 +13,9 @@ const Layout = () => {
   return (
     <div>
       <header>
-        <h1>My App</h1>
+        <h1 className="mb-4 text-4xl">My App</h1>
         <nav>
-          <ul>
+          <ul className="mb-2 flex list-none justify-end bg-[#333] p-2 **:p-4 **:hover:bg-[#111]">
             <li>
               <Link to="/">Home</Link>
             </li>

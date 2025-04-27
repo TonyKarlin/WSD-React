@@ -1,30 +1,39 @@
-'use strict';
-import {uniqBy} from 'lodash';
-import {useEffect, useState} from 'react';
-import {fetchData} from '../utils/fetchData';
+import {useCallback, useEffect, useState} from 'react';
 
-const mediaUrl = import.meta.env.VITE_MEDIA_API;
+import {fetchData} from '../utils/fetchData';
+import {uniqBy} from 'lodash';
+
 const authApiUrl = import.meta.env.VITE_AUTH_API;
+const mediaApiUrl = import.meta.env.VITE_MEDIA_API;
 
 const useMedia = () => {
   const [mediaArray, setMediaArray] = useState([]);
 
   const getMedia = async () => {
     try {
-      const mediaData = await fetchData(mediaUrl + '/media');
+      const mediaData = await fetchData(`${mediaApiUrl}/media`);
       const uniqueUserIds = uniqBy(mediaData, 'user_id');
 
-      const newData = await Promise.all(
-        uniqueUserIds.map(async (item) => {
-          const data = await fetchData(`${authApiUrl}/users/${item.user_id}`);
-
-          return {...item, username: data.username};
-        }),
+      const userData = await Promise.all(
+        uniqueUserIds.map((item) =>
+          fetchData(`${authApiUrl}/users/${item.user_id}`),
+        ),
       );
 
+      // duplikaattien poisto on tehtävänannon ulkopuolella, ei tarvitse toteuttaa
+      const userMap = userData.reduce((map, {user_id, username}) => {
+        map[user_id] = username;
+        return map;
+      }, {});
+
+      const newData = mediaData.map((item) => ({
+        ...item,
+        username: userMap[item.user_id],
+      }));
+
       setMediaArray(newData);
-    } catch (e) {
-      console.error('error', e);
+    } catch (error) {
+      console.error('error', error);
     }
   };
 
@@ -32,10 +41,56 @@ const useMedia = () => {
     getMedia();
   }, []);
 
-  return {mediaArray};
+  const postMedia = async (file, inputs, token) => {
+    const data = {
+      ...inputs,
+      ...file,
+    };
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer: ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
+
+    return await fetchData(`${mediaApiUrl}/media`, fetchOptions);
+  };
+
+  const modifyMedia = async (inputs, token) => {
+    const fetchOptions = {
+      method: 'PUT',
+      headers: {
+        Authorization: `Bearer: ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputs),
+    };
+
+    return await fetchData(`${mediaApiUrl}/media/${inputs.id}`, fetchOptions);
+  };
+
+  const deleteMedia = async (id, token) => {
+    const fetchOptions = {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer: ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+
+    return await fetchData(`${mediaApiUrl}/media/${id}`, fetchOptions);
+  };
+
+  return {mediaArray, postMedia, deleteMedia, modifyMedia};
 };
 
+const tokenExistsInLocalstorage = () => Boolean(localStorage.getItem('token'));
+
 const useAuthentication = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(tokenExistsInLocalstorage());
+
   const postLogin = async (inputs) => {
     const fetchOptions = {
       method: 'POST',
@@ -49,12 +104,16 @@ const useAuthentication = () => {
       fetchOptions,
     );
 
+    console.log('loginResult', loginResult.token);
+
     window.localStorage.setItem('token', loginResult.token);
+
+    setIsLoggedIn(tokenExistsInLocalstorage());
 
     return loginResult;
   };
 
-  return {postLogin};
+  return {postLogin, isLoggedIn};
 };
 
 const useUser = () => {
@@ -66,20 +125,92 @@ const useUser = () => {
       },
       body: JSON.stringify(inputs),
     };
-    return await fetchData(`${authApiUrl}/users`, fetchOptions);
+    return await fetchData(
+      import.meta.env.VITE_AUTH_API + '/users',
+      fetchOptions,
+    );
   };
 
-  const getUserByToken = async (token) => {
+  const getUserByToken = useCallback(async (token) => {
     const fetchOptions = {
       headers: {
-        Authorization: 'Bearer: ' + token, // Space is important after 'Bearer:(here)'
+        Authorization: 'Bearer: ' + token,
       },
     };
-    const userData = await fetchData(`${authApiUrl}/users/token`, fetchOptions);
 
-    return userData;
-  };
+    return await fetchData(
+      import.meta.env.VITE_AUTH_API + '/users/token',
+      fetchOptions,
+    );
+  }, []);
+
   return {getUserByToken, postUser};
 };
 
-export {useMedia, useAuthentication, useUser};
+const useFile = () => {
+  const postFile = async (file, token) => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        Authorization: 'Bearer: ' + token,
+      },
+      mode: 'cors',
+      body: formData,
+    };
+
+    return await fetchData(
+      import.meta.env.VITE_UPLOAD_SERVER + '/upload',
+      fetchOptions,
+    );
+  };
+
+  return {postFile};
+};
+
+const useLike = () => {
+  const postLike = async (mediaId, token) => {
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer: ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({media_id: mediaId}),
+    };
+
+    return await fetchData(`${mediaApiUrl}/likes`, fetchOptions);
+  };
+
+  const deleteLike = async (mediaId, token) => {
+    const fetchOptions = {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer: ${token}`,
+        'Content-Type': 'application/json',
+      },
+    };
+
+    return await fetchData(`${mediaApiUrl}/likes/${mediaId}`, fetchOptions);
+  };
+
+  const getLikesByMediaId = async (mediaId) => {
+    return await fetchData(`${mediaApiUrl}/likes/file/${mediaId}`);
+  };
+
+  const getLikesByUser = async (token) => {
+    const fetchOptions = {
+      headers: {
+        Authorization: `Bearer: ${token}`,
+      },
+    };
+
+    return await fetchData(`${mediaApiUrl}/likes`, fetchOptions);
+  };
+
+  return {postLike, deleteLike, getLikesByMediaId, getLikesByUser};
+};
+
+export {useMedia, useAuthentication, useUser, useFile, useLike};
