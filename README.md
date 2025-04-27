@@ -1,4 +1,4 @@
-# React + Vite
+# Tailwind
 
 ## React Assignments ([link](https://github.com/ilkkamtk/WSK/blob/main/Week4/01-react-start.md))
 
