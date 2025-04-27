@@ -16,6 +16,8 @@
 
 [Assignment 7 - Shared-State (Context) - Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/shared-state)
 
+[Assignment 8 - Tailwind - Link to Branch](https://github.com/TonyKarlin/WSD-React/tree/tailwind)
+
 ---
 
 ### Metropolias personal index
@@ -31,3 +33,5 @@ Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Custom-Hooks/) to vie
 Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Forms/) to view Assignment "Forms" in the browser. &#x2611;
 
 Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Context/) to view Assignment "Context" in the browser. &#x2611;
+
+Open [link](https://users.metropolia.fi/~tonykar/WSD-React/Tailwind/) to view Assignment "Tailwind" in the browser. &#x2611;
