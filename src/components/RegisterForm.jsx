@@ -1,24 +1,20 @@
-import {useNavigate} from 'react-router';
-import {useAuthentication} from '../hooks/apiHooks';
+import {useUser} from '../hooks/apiHooks';
 import useForm from '../hooks/formHooks';
 
 const RegisterForm = () => {
-  // TODO: implement
-  const {postLogin} = useAuthentication();
-  const navigate = useNavigate();
+  const {postUser} = useUser();
 
   const initValues = {
-    email: '',
     username: '',
     password: '',
+    email: '',
   };
 
   const doRegister = async () => {
     console.log('Register funktiota kutsuttu');
-    console.log('Inputs', inputs);
-    const registerResult = await postLogin(inputs);
-    navigate('/profile');
-    console.log('regRes', registerResult);
+    console.log(inputs);
+    const userResult = await postUser(inputs);
+    console.log(userResult);
   };
 
   const {inputs, handleInputChange, handleSubmit} = useForm(
@@ -26,43 +22,67 @@ const RegisterForm = () => {
     initValues,
   );
 
+  console.log(inputs);
   return (
-    <>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="p-4">
+      <h1 className="mb-6 text-3xl font-bold">Register</h1>
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="loginemail">Email</label>
+          <label
+            htmlFor="registeruser"
+            className="mb-1 block text-lg font-medium"
+          >
+            Username
+          </label>
           <input
-            name="email"
-            type="text"
-            id="loginemail"
-            onChange={handleInputChange}
-            autoComplete="email"
-          />
-        </div>
-        <div>
-          <label htmlFor="loginuser">Username</label>
-          <input
-            name="username"
-            type="text"
-            id="loginuser"
             onChange={handleInputChange}
             autoComplete="username"
+            type="text"
+            id="registeruser"
+            name="username"
+            className="w-full rounded-md border border-gray-300 p-2"
           />
         </div>
         <div>
-          <label htmlFor="register-password">Password</label>
+          <label
+            htmlFor="registeremail"
+            className="mb-1 block text-lg font-medium"
+          >
+            Email
+          </label>
+          <input
+            onChange={handleInputChange}
+            autoComplete="email"
+            type="email"
+            id="registeremail"
+            name="email"
+            className="w-full rounded-md border border-gray-300 p-2"
+          />
+        </div>
+        <div>
+          <label
+            htmlFor="registerpassword"
+            className="mb-1 block text-lg font-medium"
+          >
+            Password
+          </label>
           <input
             name="password"
             type="password"
-            id="register-password"
+            id="registerpassword"
             onChange={handleInputChange}
-            autoComplete="register-password"
+            autoComplete="current-password"
+            className="w-full rounded-md border border-gray-300 p-2"
           />
         </div>
-        <button type="submit">Register</button>
+        <button
+          type="submit"
+          className="mt-4 rounded-md bg-blue-500 px-4 py-2 text-white hover:bg-blue-600"
+        >
+          Register
+        </button>
       </form>
-    </>
+    </div>
   );
 };
 
