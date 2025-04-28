@@ -1,10 +1,9 @@
 import Likes from './Likes';
-import {useUserContext} from '../hooks/contextHooks';
 import PropTypes from 'prop-types';
 
 const SingleView = (props) => {
   const {item, setSelectedItem} = props;
-  const {user} = useUserContext();
+  const token = localStorage.getItem('token');
 
   const handleClick = () => {
     setSelectedItem(null);
@@ -37,7 +36,7 @@ const SingleView = (props) => {
           <Likes
             className="rounded-md bg-red-500 px-4 py-2 text-gray-900 hover:bg-red-600"
             mediaId={item.media_id}
-            token={user?.token}
+            token={token}
           />
         </dialog>
       )}
