@@ -5,6 +5,7 @@ const Likes = ({mediaId, token}) => {
   const {getLikesByMediaId, getLikesByUser, postLike, deleteLike} = useLike();
   const [likes, setLikes] = useState([]);
   const [userLikes, setUserLikes] = useState(false);
+
   const fetchLikes = async () => {
     try {
       const mediaLikes = await getLikesByMediaId(mediaId);
@@ -29,7 +30,7 @@ const Likes = ({mediaId, token}) => {
       } else {
         await postLike(mediaId, token);
       }
-      fetchLikes(); // Refresh likes after liking/unliking
+      await fetchLikes();
     } catch (error) {
       console.error('Error handling like:', error);
     }
