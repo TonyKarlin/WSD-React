@@ -44,8 +44,8 @@ const Upload = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-stone-800 p-4">
-      <h1 className="mb-6 text-3xl font-bold text-stone-800">Upload</h1>
+    <div className="flex min-h-screen flex-col items-center justify-center p-4">
+      <h1 className="mb-6 text-3xl font-bold text-white">Upload</h1>
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-lg space-y-4 rounded-lg bg-white p-6 shadow-md"
@@ -61,6 +61,7 @@ const Upload = () => {
             name="title"
             type="text"
             id="title"
+            placeholder="Media title"
             onChange={handleInputChange}
             className="w-full rounded-md border border-stone-500 p-2 text-stone-900 focus:ring-2 focus:ring-stone-500 focus:outline-none"
           />
@@ -76,6 +77,7 @@ const Upload = () => {
             name="description"
             rows={5}
             id="description"
+            placeholder="Media description"
             onChange={handleInputChange}
             className="w-full rounded-md border border-stone-500 p-2 text-stone-900 focus:ring-2 focus:ring-stone-500 focus:outline-none"
           ></textarea>

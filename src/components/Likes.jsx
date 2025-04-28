@@ -40,7 +40,7 @@ const Likes = ({mediaId, token}) => {
   }, [mediaId, token]);
 
   return (
-    <div>
+    <div className="flex flex-col items-center space-y-2">
       <button
         onClick={handleLike}
         className={`rounded-md px-4 py-2 ${

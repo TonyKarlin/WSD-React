@@ -1,21 +1,22 @@
-import {Link, useNavigate} from 'react-router';
+import {Link} from 'react-router';
 import PropTypes from 'prop-types';
 import {useAuthentication} from '../hooks/apiHooks';
+import {useContext, useState} from 'react';
+import {UserContext} from '../contexts/UserContext';
+import Edit from '../views/Edit';
 
 const MediaRow = (props) => {
   const {isLoggedIn} = useAuthentication();
-  const {item, setSelectedItem} = props;
-  const navigate = useNavigate();
+  const {item, setSelectedItem, deleteMedia, modifyMedia} = props;
+  const [visible, setVisible] = useState(true);
+  const token = localStorage.getItem('token');
+  const {user} = useContext(UserContext);
+  const loggedin_user_id = user ? user.user_id : null;
+  const [showEdit, setShowEdit] = useState(false);
 
-  const handleEdit = () => {
-    console.log('edit button clicked');
-    navigate(0);
-  };
-
-  const handleDelete = () => {
-    console.log('delete button clicked');
-    navigate(0);
-  };
+  if (!visible) {
+    return null;
+  }
 
   return (
     <tr className="border-2 border-gray-300 p-4">
@@ -48,19 +49,36 @@ const MediaRow = (props) => {
             View
           </Link>
 
-          {isLoggedIn && (
+          {isLoggedIn && item.user_id === loggedin_user_id && (
             <>
               <button
                 type="button"
                 className="rounded-md bg-sky-400 px-4 py-2 text-black hover:bg-sky-500"
-                onClick={handleEdit}
+                onClick={(event) => {
+                  event.stopPropagation(); // Prevent triggering parent click events
+                  setShowEdit(true);
+                }}
               >
                 Edit
               </button>
+              {showEdit && (
+                <Edit
+                  item={item}
+                  modifyMedia={modifyMedia}
+                  onClose={() => setShowEdit(false)}
+                />
+              )}
+
               <button
                 type="button"
                 className="rounded-md bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-                onClick={handleDelete}
+                onClick={(event) => {
+                  event.stopPropagation(); // Prevent triggering parent click events
+                  if (confirm('Are you sure you want to delete this media?')) {
+                    deleteMedia(item.media_id, token);
+                    setVisible(false);
+                  }
+                }}
               >
                 Delete
               </button>

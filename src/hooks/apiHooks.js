@@ -68,7 +68,12 @@ const useMedia = () => {
       body: JSON.stringify(inputs),
     };
 
-    return await fetchData(`${mediaApiUrl}/media/${inputs.id}`, fetchOptions);
+    console.log('inputs', inputs);
+
+    return await fetchData(
+      `${mediaApiUrl}/media/${inputs.media_id}`,
+      fetchOptions,
+    );
   };
 
   const deleteMedia = async (id, token) => {
@@ -107,6 +112,7 @@ const useAuthentication = () => {
     console.log('loginResult', loginResult.token);
 
     window.localStorage.setItem('token', loginResult.token);
+    window.localStorage.setItem('user', JSON.stringify(loginResult.user));
 
     setIsLoggedIn(tokenExistsInLocalstorage());
 
